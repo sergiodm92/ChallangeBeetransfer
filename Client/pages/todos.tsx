@@ -1,11 +1,10 @@
-import { Button, Checkbox, Input, MenuItem, TextField, TextareaAutosize } from '@mui/material';
+import { Button, Checkbox, MenuItem} from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Swal from 'sweetalert2'
 import styles from '../styles/Todos.module.css'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { TextRotationAngledownRounded } from '@mui/icons-material';
 const URL = 'https://us-central1-apitodolistsergiodm92.cloudfunctions.net/server'
 
 export default function Todos(){
@@ -36,6 +35,7 @@ export default function Todos(){
           .catch((error)=>{
             console.log(error)
           })
+          
     }, [reload]);
 
     useEffect(() => {
@@ -52,7 +52,11 @@ export default function Todos(){
           .catch((error)=>{
             console.log(error)
           })
+      setFilter('')
+      setSort('')
     },[reload]);
+
+
 
     const handleClickCS = () =>{
       sessionStorage.setItem('token','')
@@ -157,7 +161,7 @@ export default function Todos(){
             'auth-token': `${sessionStorage.token}`
           }
           })
-          .then((response)=>{
+          .then(()=>{
             setReload(reload+1)
           })
           .catch(()=>{
@@ -171,6 +175,41 @@ export default function Todos(){
           }
       })
    }
+const handleDeleteForEver = (e: React.MouseEvent<HTMLElement> ) =>{
+  const target = e.target as typeof e.target & {
+    id: { value: number };
+    };
+    Swal.fire({
+      title: '¿Estas seguro/a de eliminar la tarea definitivamente?',
+      text: "Presione confirmar para eliminar",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+    axios
+      .delete(`${URL}/todo/deleteForEver`,{
+        headers: {
+        'auth-token': `${sessionStorage.token}`
+      },
+      data: {id:target.id}
+      })
+      .then(()=>{
+        setReload(reload+1)
+      })
+      .catch(()=>{
+        Swal.fire({
+          icon: 'error',
+          title:'¡Ocurrio un error!',
+          text: 'Vuelva a intentarlo',
+          confirmButtonColor: '#3085d6'
+      })
+      })
+      }})
+  }
 const handleResDelete = (e: React.MouseEvent<HTMLElement> ) =>{
   const target = e.target as typeof e.target & {
     id: { value: number };
@@ -207,11 +246,7 @@ const handleResDelete = (e: React.MouseEvent<HTMLElement> ) =>{
       }
   })
   }
-const handleDeleteForEver = (e: React.MouseEvent<HTMLElement> ) =>{
-  const target = e.target as typeof e.target & {
-    id: { value: number };
-    };
-  }
+
 const handleEdit = (a:  {id: string; title: string; text: string; completed: boolean;} ) =>{
     const id = a.id
     const title = a.title
@@ -277,7 +312,7 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
             'auth-token': `${sessionStorage.token}`
           }
           })
-          .then((response)=>{
+          .then(()=>{
             setReload(reload+1)
             setCopyTodos(todos)
           })
@@ -331,7 +366,7 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
                 <Select
                 sx={{width:'120px', height:'40px', fontSize:'12px'}}
                 labelId="demo-simple-select-label"
-                id="select-filter"
+                id="selectFilter"
                 value={filter}
                 label="Filtrado"
                 onChange={handleChangeFilter}

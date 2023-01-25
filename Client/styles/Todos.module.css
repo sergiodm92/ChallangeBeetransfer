@@ -133,3 +133,11 @@ text-align: justify;
         height: 40px;
     }
 }
+@media screen and (max-width: 460px) {
+    .filters{
+        gap: 5px;
+    }
+    .selects{
+        gap: 2px;
+    }
+}
