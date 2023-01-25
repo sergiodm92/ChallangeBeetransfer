@@ -28,8 +28,8 @@ Bienvenido a la prueba técnica para FrontEnd Developer en Beetransfer. En esta 
 <h4>Instrucciones:</h4>
 Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar sesión, crear tareas con nombre y descripción, que se puedan editar y cambiar el estado entre CREATED, COMPLETED, DELETED. 
 
-<h5>El diseño debe ser el siguiente:</h5>
-<a href="https://www.figma.com/file/h1lXIDQVX1BDDSGi02TIZK/Frontend-technical-test?node-id=0%3A1&t=C0lmMfmDy3W8A60t-1">Link de diseño<a>
+<h5>El diseño debe ser el siguiente:</h5><a href="https://www.figma.com/file/h1lXIDQVX1BDDSGi02TIZK/Frontend-technical-test?node-id=0%3A1&t=C0lmMfmDy3W8A60t-1">Link de diseño<a>
+
 
 Como mínimo debe contener lo siguiente:
 Página de registro / inicio de sesión
