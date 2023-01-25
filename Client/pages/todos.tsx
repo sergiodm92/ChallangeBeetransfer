@@ -19,7 +19,6 @@ export default function Todos(){
     const [filter, setFilter] = useState('')
     const [sort, setSort] = useState('')
 
-
     useEffect(() => {
       setToken(sessionStorage.token)
       setEmail(sessionStorage.email)
@@ -316,41 +315,41 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
             </div>
             <form onSubmit={handleSubmitTodo} className={styles.formAdd}>
                 <div className={styles.inputs}>
-                  <Input sx={{width:'400px', marginLeft:'30px'}}  key= 'title' placeholder='Titulo de la tarea...' name='title' />
-                  <Input sx={{width:'400px', marginLeft:'30px'}}  key= 'text' placeholder='Descripcion...' name='text' />
+                  <Input sx={{marginLeft:'30px',width:'auto'}}  key= 'title' placeholder='Titulo de la tarea...' name='title' />
+                  <Input sx={{width:'auto', marginLeft:'30px'}}  key= 'text' placeholder='Descripcion...' name='text' />
                 </div>
                 <div>
-                  <Button variant="contained" sx={{ height:'52px'}} type='submit'>Agregar</Button>
+                  <Button variant="contained" sx={{ height:'40px',fontSize:'12px'}} type='submit'>Agregar</Button>
                 </div>
             </form>
             <div className={styles.filters}>
               <div className={styles.selects}>
                 <p>Filtrar</p>
                 <Select
-                sx={{width:'180px', height:'40px'}}
+                sx={{width:'120px', height:'40px', fontSize:'12px'}}
                 labelId="demo-simple-select-label"
                 id="select-filter"
                 value={filter}
                 label="Filtrado"
                 onChange={handleChangeFilter}
                 >
-                  <MenuItem value={"Todas"}>Todas</MenuItem>
-                  <MenuItem value={"Completadas"}>Completadas</MenuItem>
-                  <MenuItem value={"Pendientes"}>Pendientes</MenuItem>
-                  <MenuItem value={"Eliminadas"}>Eliminadas</MenuItem>
+                  <MenuItem sx={{fontSize:'12px'}} value={"Todas"}>Todas</MenuItem>
+                  <MenuItem sx={{fontSize:'12px'}} value={"Completadas"}>Completadas</MenuItem>
+                  <MenuItem sx={{fontSize:'12px'}} value={"Pendientes"}>Pendientes</MenuItem>
+                  <MenuItem sx={{fontSize:'12px'}} value={"Eliminadas"}>Eliminadas</MenuItem>
                 </Select>
               </div>
               <div className={styles.selects}>
                 <p>Ordenar</p>
                 <Select
-                sx={{width:'180px', height:'40px'}}
+                sx={{width:'120px', height:'40px',fontSize:'12px'}}
                 labelId="demo-simple-select-label"
                 id="select-sort"
                 value={sort}
                 label="Age"
                 onChange={handleChangeFilter}
                 >
-                  <MenuItem value={"a-z"}>Nombre A-Z</MenuItem>
+                  <MenuItem sx={{fontSize:'12px'}} value={"a-z"}>Nombre A-Z</MenuItem>
                 </Select>
               </div>
             </div>

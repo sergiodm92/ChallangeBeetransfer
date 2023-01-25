@@ -59,6 +59,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    font-size: 12px;
 }
 .cards{
     display: flex;
@@ -70,6 +71,9 @@
 .card{
     display: flex;
     justify-content: space-between;
+}
+.cardText{
+text-align: justify;
 }
 .tasks{
     display: flex;
@@ -85,10 +89,14 @@
     justify-content: center;
     align-items: center;
     min-width: 80px;
-    margin-left: 200px;
+    margin-left: 50px;
 }
 .btnEdits{
     border-style: none;
     width: 40px;
     height: 40px;
+}
+
+@media screen and (max-width: 730px) {
+   
 }
