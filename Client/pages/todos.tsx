@@ -56,8 +56,6 @@ export default function Todos(){
       setSort('')
     },[reload]);
 
-
-
     const handleClickCS = () =>{
       sessionStorage.setItem('token','')
       Swal.fire({
@@ -76,16 +74,16 @@ export default function Todos(){
             title:'¡Sesion finalizada correctamente!',
             confirmButtonColor: '#3085d6'
         })
-        .catch(()=>{
-          Swal.fire({
-            icon: 'error',
-            title:'¡Ocurrio un error!',
-            text: 'Vuelva a intentarlo',
-            confirmButtonColor: '#3085d6'
-        })
-        })
           router.push('/')
         }
+      })
+      .catch(()=>{
+        Swal.fire({
+          icon: 'error',
+          title:'¡Ocurrio un error!',
+          text: 'Vuelva a intentarlo',
+          confirmButtonColor: '#3085d6'
+      })
       })
     }
     const handleSubmitTodo = (e: React.SyntheticEvent<HTMLFormElement>) =>{
