@@ -7,7 +7,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import {useEffect} from 'react'
-const URL = 'http://localhost:5000/apitodolistsergiodm92/us-central1/server'
+const URL = 'https://console.firebase.google.com/project/apitodolistsergiodm92/overview'
 
 
 const Home: NextPage = () => {
