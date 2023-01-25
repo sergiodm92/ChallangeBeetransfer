@@ -31,7 +31,7 @@ Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar ses
 <h5>El diseño debe ser el siguiente:</h5><a href="https://www.figma.com/file/h1lXIDQVX1BDDSGi02TIZK/Frontend-technical-test?node-id=0%3A1&t=C0lmMfmDy3W8A60t-1">Link de diseño<a>
 
 
-Como mínimo debe contener lo siguiente:
+<h4>Como mínimo debe contener lo siguiente:</h4>
 Página de registro / inicio de sesión
 Botón para agregar tareas.
 Poder ver la lista de tareas creadas / completadas ( eliminadas deseable ).
