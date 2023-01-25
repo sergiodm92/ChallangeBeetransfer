@@ -84,7 +84,6 @@ export default function Todos(){
         }
       })
     }
-
     const handleSubmitTodo = (e: React.SyntheticEvent<HTMLFormElement>) =>{
       e.preventDefault();
       const target = e.target as typeof e.target & {
@@ -123,6 +122,10 @@ export default function Todos(){
             showConfirmButton: false,
             timer: 800
           })
+          setReload(reload+1)
+          target.title.value=''
+          target.text.value=''
+        })
         .catch(()=>{
           Swal.fire({
             icon: 'error',
@@ -130,10 +133,6 @@ export default function Todos(){
             text: 'Vuelva a intentarlo',
             confirmButtonColor: '#3085d6'
         })
-        })
-          setReload(reload+1)
-          target.title.value=''
-          target.text.value=''
         })
     }
     const handleDelete = (e: React.MouseEvent<HTMLElement> ) =>{
