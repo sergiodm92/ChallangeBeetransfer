@@ -3,7 +3,7 @@ Desafío propuesto por la empresa Beetransfer
 
 
 <h1>Frontend developer test - Beetransfer</h1>
-Introducción
+<h3>Introducción</h3>
 Bienvenido a la prueba técnica para FrontEnd Developer en Beetransfer. En esta ocasión quiero presentarte lo necesario para poder realizar la misma.
 Requisitos del proyecto:
 Debe estar desarrollado en Typescript.
