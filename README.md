@@ -2,7 +2,7 @@
 Desafío propuesto por la empresa Beetransfer
 
 
-Frontend developer test - Beetransfer
+<h1>Frontend developer test - Beetransfer</h1>
 Introducción
 Bienvenido a la prueba técnica para FrontEnd Developer en Beetransfer. En esta ocasión quiero presentarte lo necesario para poder realizar la misma.
 Requisitos del proyecto:
