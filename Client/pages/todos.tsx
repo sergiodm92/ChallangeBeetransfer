@@ -12,6 +12,7 @@ export default function Todos(){
 
     const [token, setToken] = useState('');
     const [todos, setTodos] = useState([]);
+    const [todosDeleted, setTodosDeleted] = useState([]);
     const [copyTodos, setCopyTodos] = useState([]);
     const [email, setEmail] = useState('');
     const [reload, setReload] = useState(0);
@@ -29,12 +30,13 @@ export default function Todos(){
           }
           })
           .then((response)=>{
-            setCopyTodos(response.data.data)
+            setCopyTodos(response.data.data.filter((t:{delete:boolean})=>t.delete===false))
+            setTodosDeleted(response.data.data.filter((t:{delete:boolean})=>t.delete===true))
           })
           .catch((error)=>{
             console.log(error)
           })
-    }, []);
+    }, [reload]);
 
     useEffect(() => {
       axios
@@ -149,7 +151,42 @@ export default function Todos(){
           }
       })
    }
-
+const handleResDelete = (e: React.MouseEvent<HTMLElement> ) =>{
+  const target = e.target as typeof e.target & {
+    id: { value: number };
+    };
+  const id = target.id.toString()
+  Swal.fire({
+    title: '¿Estas seguro/a de reestablecer la tarea?',
+    text: "Presione confirmar para reestablecer",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Confirmar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axios
+      .put(`${URL}/todo/deleteFalse`,{id:id},{
+        headers: {
+        'auth-token': `${sessionStorage.token}`
+      }
+      })
+      .then((response)=>{
+        setReload(reload+1)
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
+      }
+  })
+  }
+const handleDeleteForEver = (e: React.MouseEvent<HTMLElement> ) =>{
+  const target = e.target as typeof e.target & {
+    id: { value: number };
+    };
+  }
 const handleEdit = (a:  {id: string; title: string; text: string; completed: boolean;} ) =>{
     const id = a.id
     const title = a.title
@@ -218,6 +255,7 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
           })
           .then((response)=>{
             setReload(reload+1)
+            setCopyTodos(todos)
           })
           .catch((error)=>{
             console.log(error)
@@ -225,9 +263,10 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
     }
     const handleChangeFilter = (e: SelectChangeEvent) => {
       setFilter(e.target.value)
+      if(e.target.value=="Todas"){setTodos(copyTodos)}
       if(e.target.value=="Completadas"){setTodos(copyTodos.filter((a:{completed:boolean})=>a.completed==true))}
       if(e.target.value=="Pendientes"){setTodos(copyTodos.filter((a:{completed:boolean})=>a.completed==false))}
-      if(e.target.value=="Eliminadas"){setTodos(copyTodos.filter((a:{delete:boolean})=>a.delete==true))}
+      if(e.target.value=="Eliminadas"){setTodos(todosDeleted)}
       if(e.target.value=="a-z"){
         setSort(e.target.value)
         setTodos(copyTodos.sort(
@@ -240,7 +279,6 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
       const dateFormat= (new Date(date)).toLocaleDateString('es').replaceAll("/", "-")
       return dateFormat
     }
-    
     return(
           <div className={styles.container}>
             <div className={styles.title}>
@@ -267,6 +305,7 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
                 label="Filtrado"
                 onChange={handleChangeFilter}
                 >
+                  <MenuItem value={"Todas"}>Todas</MenuItem>
                   <MenuItem value={"Completadas"}>Completadas</MenuItem>
                   <MenuItem value={"Pendientes"}>Pendientes</MenuItem>
                   <MenuItem value={"Eliminadas"}>Eliminadas</MenuItem>
@@ -287,7 +326,7 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
               </div>
             </div>
             <div className={styles.cards}>
-            {todos.length?todos.map((a:{id:string; title:string; text:string; completed:boolean; date:number})=>{
+            {todos.length?todos.map((a:{id:string; title:string; text:string; completed:boolean; date:number, delete:boolean})=>{
                 return(
                   <div key={a.id} className={styles.card}>
                     <div className={styles.tasks}>
@@ -304,10 +343,17 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
                       </div>
                     </div>
                     <div className={styles.cardEnd}>
+                    {!a.delete?
                       <div className={styles.btnlist}>
                         <button onClick={()=>handleEdit(a)} className={styles.btnEdits}>✏️</button>
                         <button id={a.id}  onClick={(e)=>handleDelete(e)} className={styles.btnEdits}>🗑️</button>
                       </div>
+                      :
+                      <div className={styles.btnlist}>
+                        <button id={a.id}  onClick={(e)=>handleResDelete(e)} className={styles.btnEdits}>♻️</button>
+                        <button id={a.id}  onClick={(e)=>handleDeleteForEver(e)} className={styles.btnEdits}>🗑️</button>
+                      </div>
+                      }
                       <div className={styles.date}>
                         <p>{formatDate(a.date)}</p>
                       </div>
