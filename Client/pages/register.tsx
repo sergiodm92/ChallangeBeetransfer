@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import axios from 'axios'
 import { useRouter } from 'next/router';
 import {useEffect} from 'react'
-const URL = 'https://console.firebase.google.com/project/apitodolistsergiodm92/overview'
+const URL = 'https://us-central1-apitodolistsergiodm92.cloudfunctions.net/server'
 
 export default function Register(){
 

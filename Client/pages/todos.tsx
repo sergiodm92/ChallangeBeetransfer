@@ -5,7 +5,7 @@ import styles from '../styles/Todos.module.css'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-const URL = 'https://console.firebase.google.com/project/apitodolistsergiodm92/overview'
+const URL = 'https://us-central1-apitodolistsergiodm92.cloudfunctions.net/server'
 
 export default function Todos(){
   const router = useRouter()
