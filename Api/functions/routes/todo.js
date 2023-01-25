@@ -6,7 +6,8 @@ const {
     putDeleteTodoTrue,
     putDeleteTodoFalse,
     editTodo,
-    putCompletedTrue
+    putCompletedTrue,
+    deleteForEver
 } = require('../services/todo.service');
 
 const {
@@ -75,6 +76,17 @@ route.put('/deleteFalse', async (req, res) => {
     try {
         if(await putDeleteTodoFalse(id)){
             return res.status(200).send(customResponseExito("Added again"));
+        }
+    } catch (error) {
+        return res.status(400).send(customResponseError("Error, incorrect id.", 400));
+    }
+})
+
+route.delete('/deleteForEver', async (req, res) => {
+    const { id } = req.body
+    try {
+        if(await deleteForEver(id)){
+            return res.status(200).send(customResponseExito("Delete successfully"));
         }
     } catch (error) {
         return res.status(400).send(customResponseError("Error, incorrect id.", 400));

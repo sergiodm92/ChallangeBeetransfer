@@ -53,7 +53,7 @@ route.post('/register', async (req, res) => {
             res.status(201).json(customResponseExito(user));
         }
         else {
-            if(!user)res.status(400).json(customResponseError("user already exists"))
+            if(user==false)res.status(400).json(customResponseError("user already exists"))
             else res.status(400).json(customResponseError("Failed to register, please try again..."));
         }
     } catch (error) {

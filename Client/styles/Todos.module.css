@@ -96,6 +96,11 @@ text-align: justify;
     border-style: none;
     width: 40px;
     height: 40px;
+    cursor: pointer;
+}
+.btnEdits:hover{
+    scale: 1.2;
+
 }
 .inputTodo{
     border-width: 0;

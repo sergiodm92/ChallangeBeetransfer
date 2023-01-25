@@ -77,6 +77,15 @@ const editTodo = async (id, title, text) => {
     }
 }
 
+const deleteForEver = async (id) => {
+    try {
+        await db.collection("Todos").doc(id).delete()
+        return true;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
 
 module.exports = {
     postTodo,
@@ -85,5 +94,6 @@ module.exports = {
     putDeleteTodoTrue,
     putDeleteTodoFalse,
     editTodo,
-    putCompletedTrue
+    putCompletedTrue,
+    deleteForEver
 };

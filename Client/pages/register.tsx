@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import {useEffect} from 'react'
 const URL = 'https://us-central1-apitodolistsergiodm92.cloudfunctions.net/server'
 
+
 export default function Register(){
 
   const router = useRouter()
@@ -72,19 +73,27 @@ export default function Register(){
                   })
                   router.push('/')
                 })
-                .catch(()=>{
-                  Swal.fire({
+                .catch((error)=>{
+                  if(error.response.data.message=="user already exists"){
+                    Swal.fire({
+                      icon:'warning',
+                      title:'El correo ya existe ',
+                      text:'Debe ingresar un correo que no este registrado',
+                      confirmButtonColor:'#3085d6'
+                      });
+                  }
+                  else{Swal.fire({
                     icon: 'error',
                     title:'¡Ocurrio un error!',
                     text: 'Vuelva a intentarlo',
                     confirmButtonColor: '#3085d6'
-                })
+                })}
                 })
     }  
 
     return( 
         <div className={styles.container}>
-      <h1>Reistrarse</h1>
+      <h1>Registrarse</h1>
       <form onSubmit={handleSubmit}>
         <h4>Ingrese su Email</h4>
         <TextField id="outlined-basic" type='email' name="email" label="usuario@email.ejemplo" variant="outlined" />
