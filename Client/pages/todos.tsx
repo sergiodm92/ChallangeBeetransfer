@@ -1,10 +1,11 @@
-import { Button, Checkbox, Input, MenuItem } from '@mui/material';
+import { Button, Checkbox, Input, MenuItem, TextField, TextareaAutosize } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Swal from 'sweetalert2'
 import styles from '../styles/Todos.module.css'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { TextRotationAngledownRounded } from '@mui/icons-material';
 const URL = 'https://us-central1-apitodolistsergiodm92.cloudfunctions.net/server'
 
 export default function Todos(){
@@ -315,11 +316,13 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
             </div>
             <form onSubmit={handleSubmitTodo} className={styles.formAdd}>
                 <div className={styles.inputs}>
-                  <Input sx={{marginLeft:'30px',width:'auto'}}  key= 'title' placeholder='Titulo de la tarea...' name='title' />
-                  <Input sx={{width:'auto', marginLeft:'30px'}}  key= 'text' placeholder='Descripcion...' name='text' />
+                  {/* <input sx={{marginLeft:'30px',width:'auto',height:'auto', fontSize:'12px'   }}  key= 'title' placeholder='Titulo de la tarea...' name='title' />
+                  <input sx={{width:'auto', marginLeft:'30px',height:'auto', fontSize:'12px'}}  key= 'text' placeholder='Descripcion...' name='text' /> */}
+                  <input maxLength={100} key= 'title' placeholder='Titulo de la tarea...' name='title'className={styles.inputTodo} />
+                  <input maxLength={500} key= 'text' placeholder='Descripcion...' name='text' className={styles.inputTodo}/> 
                 </div>
                 <div>
-                  <Button variant="contained" sx={{ height:'40px',fontSize:'12px'}} type='submit'>Agregar</Button>
+                  <Button variant="contained" sx={{ height:'60px',fontSize:'12px'}} type='submit'>Agregar</Button>
                 </div>
             </form>
             <div className={styles.filters}>

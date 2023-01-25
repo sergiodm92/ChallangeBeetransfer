@@ -39,6 +39,7 @@
 .inputs{
     display: flex;
     flex-direction: column;
+    gap:10px;
 }
 .filters{
     display: flex;
@@ -96,7 +97,39 @@ text-align: justify;
     width: 40px;
     height: 40px;
 }
+.inputTodo{
+    border-width: 0;
+    font-size: 15px;
+    width: 800px;
+    height: 40px;
+    outline: none;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .inputTodo{
+        border-width: 0;
+        font-size: 15px;
+        width: 700px;
+        height: 40px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .inputTodo{
+        border-width: 0;
+        font-size: 15px;
+        width: 500px;
+        height: 40px;
+    }
+}
+
+
 
 @media screen and (max-width: 730px) {
-   
+    .inputTodo{
+        border-width: 0;
+        font-size: 15px;
+        width: 200px;
+        height: 40px;
+    }
 }
