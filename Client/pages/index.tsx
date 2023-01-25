@@ -81,9 +81,6 @@ const Home: NextPage = () => {
             }
             )
           }
-      
-//Network Error
-//message
   return (
     
     <div className={styles.container}>

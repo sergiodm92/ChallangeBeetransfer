@@ -72,6 +72,14 @@ export default function Todos(){
             title:'¡Sesion finalizada correctamente!',
             confirmButtonColor: '#3085d6'
         })
+        .catch(()=>{
+          Swal.fire({
+            icon: 'error',
+            title:'¡Ocurrio un error!',
+            text: 'Vuelva a intentarlo',
+            confirmButtonColor: '#3085d6'
+        })
+        })
           router.push('/')
         }
       })
@@ -115,6 +123,14 @@ export default function Todos(){
             showConfirmButton: false,
             timer: 800
           })
+        .catch(()=>{
+          Swal.fire({
+            icon: 'error',
+            title:'¡Ocurrio un error!',
+            text: 'Vuelva a intentarlo',
+            confirmButtonColor: '#3085d6'
+        })
+        })
           setReload(reload+1)
           target.title.value=''
           target.text.value=''
@@ -145,8 +161,13 @@ export default function Todos(){
           .then((response)=>{
             setReload(reload+1)
           })
-          .catch((error)=>{
-            console.log(error)
+          .catch(()=>{
+            Swal.fire({
+              icon: 'error',
+              title:'¡Ocurrio un error!',
+              text: 'Vuelva a intentarlo',
+              confirmButtonColor: '#3085d6'
+          })
           })
           }
       })
@@ -173,11 +194,16 @@ const handleResDelete = (e: React.MouseEvent<HTMLElement> ) =>{
         'auth-token': `${sessionStorage.token}`
       }
       })
-      .then((response)=>{
+      .then(()=>{
         setReload(reload+1)
       })
-      .catch((error)=>{
-        console.log(error)
+      .catch(()=>{
+        Swal.fire({
+          icon: 'error',
+          title:'¡Ocurrio un error!',
+          text: 'Vuelva a intentarlo',
+          confirmButtonColor: '#3085d6'
+      })
       })
       }
   })
@@ -227,7 +253,6 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
                   showConfirmButton: false,
                   timer: 800
                 })
-
               })
               .catch((error)=>{
                 Swal.fire({
@@ -258,7 +283,12 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
             setCopyTodos(todos)
           })
           .catch((error)=>{
-            console.log(error)
+            Swal.fire({
+              icon: 'error',
+              title:'¡Ocurrio un error!',
+              text: 'Vuelva a intentarlo',
+              confirmButtonColor: '#3085d6'
+          })
           })
     }
     const handleChangeFilter = (e: SelectChangeEvent) => {

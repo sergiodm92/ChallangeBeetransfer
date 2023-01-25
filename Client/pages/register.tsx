@@ -72,8 +72,13 @@ export default function Register(){
                   })
                   router.push('/')
                 })
-                .catch((error)=>{
-                  Swal.fire('ocurrio un error')
+                .catch(()=>{
+                  Swal.fire({
+                    icon: 'error',
+                    title:'¡Ocurrio un error!',
+                    text: 'Vuelva a intentarlo',
+                    confirmButtonColor: '#3085d6'
+                })
                 })
     }  
 
