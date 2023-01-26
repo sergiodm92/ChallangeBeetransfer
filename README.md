@@ -32,7 +32,15 @@ Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar ses
 
 
 <h4>Como mínimo debe contener lo siguiente:</h4>
-Página de registro / inicio de sesión
+  <ui>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  </ui>
 Botón para agregar tareas.
 Poder ver la lista de tareas creadas / completadas ( eliminadas deseable ).
 Fecha de creacion en formato DD-MM-YYYY.
