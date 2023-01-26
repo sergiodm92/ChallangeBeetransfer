@@ -349,8 +349,6 @@ const handleEdit = (a:  {id: string; title: string; text: string; completed: boo
             </div>
             <form onSubmit={handleSubmitTodo} className={styles.formAdd}>
                 <div className={styles.inputs}>
-                  {/* <input sx={{marginLeft:'30px',width:'auto',height:'auto', fontSize:'12px'   }}  key= 'title' placeholder='Titulo de la tarea...' name='title' />
-                  <input sx={{width:'auto', marginLeft:'30px',height:'auto', fontSize:'12px'}}  key= 'text' placeholder='Descripcion...' name='text' /> */}
                   <input maxLength={100} key= 'title' placeholder='Titulo de la tarea...' name='title'className={styles.inputTodo} />
                   <input maxLength={500} key= 'text' placeholder='Descripcion...' name='text' className={styles.inputTodo}/> 
                 </div>
