@@ -43,14 +43,19 @@ Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar ses
 <h4>Tecnologías utilizadas en el proyecto:</h4>
 
   <ui>
+  
   <h5>Front-End</h5>
+  
   <li>TypeScript</li>
   <li>React.js(Next.js)</li>
   <li>HTML</li>
   <li>CSS</li>
   <li>Material-UI</li>
   <li>SweetAlert2</li>
+  <li>Vercel</li>
+  
   <h5>Back-End</h5>
+  
   <li>Javascript</li>
   <li>Node.js</li>
   <li>Express</li>
@@ -58,4 +63,8 @@ Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar ses
   <li>Firebase Functions(Back-End Deploy)</li>
 
   </ui>
+  
+  <h3>Deploy:</h3>
+  <a href="https://challange-beetransfer.vercel.app/">Link<a>
+  
 
