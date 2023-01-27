@@ -43,12 +43,9 @@ Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar ses
 <h4>Tecnologías utilizadas en el proyecto:</h4>
 
   <ui>
-<<<<<<< HEAD
-
   
   <h5>Front-End</h5>
-  
->>>>>>> 8e3b519bdf18316fa0b4e738c41cc6323ea2be70
+
   <li>TypeScript</li>
   <li>React.js(Next.js)</li>
   <li>HTML</li>
