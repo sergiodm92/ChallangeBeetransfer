@@ -52,7 +52,7 @@ Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar ses
   <li>CSS</li>
   <li>Material-UI</li>
   <li>SweetAlert2</li>
-<<<<<<< HEAD
+
   </ui>
 
   <li>Vercel</li>
