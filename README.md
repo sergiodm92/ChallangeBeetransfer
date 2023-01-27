@@ -44,7 +44,7 @@ Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar ses
 
   <ui>
 <<<<<<< HEAD
-=======
+
   
   <h5>Front-End</h5>
   
@@ -57,7 +57,7 @@ Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar ses
   <li>SweetAlert2</li>
 <<<<<<< HEAD
   </ui>
-=======
+
   <li>Vercel</li>
   
   <h5>Back-End</h5>
@@ -73,5 +73,5 @@ Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar ses
   <h3>Deploy:</h3>
   <a href="https://challange-beetransfer.vercel.app/">Link<a>
   
->>>>>>> 8e3b519bdf18316fa0b4e738c41cc6323ea2be70
+
 
