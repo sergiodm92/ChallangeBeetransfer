@@ -1,7 +1,5 @@
-const functions = require('firebase-functions');
+const functions = require("firebase-functions");
 
+const server = require("./app.js");
 
-const server = require('./app.js');
-
-
-exports.server =  functions.https.onRequest(server)
+exports.server = functions.https.onRequest(server);

@@ -33,23 +33,21 @@ Se debe crear un proyecto de NextJs en donde se pueda, registrarse o iniciar ses
 
 <h4>Como mínimo debe contener lo siguiente:</h4>
   <ui>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Botón para agregar tareas.✔</li>
+  <li>Poder ver la lista de tareas creadas / completadas ( eliminadas deseable ).✔</li>
+  <li>Fecha de creacion en formato DD-MM-YYYY.✔</li>
+  <li>Botón para el completado y el eliminado de la tarea.✔</li>
+  <li>El entregable debe ser un link de Vercel y un link al repositorio de GitHub.✔</li>
   </ui>
-Botón para agregar tareas.
-Poder ver la lista de tareas creadas / completadas ( eliminadas deseable ).
-Fecha de creacion en formato DD-MM-YYYY.
-Botón para el completado y el eliminado de la tarea.
 
-El entregable debe ser un link de Vercel y un link al repositorio de GitHub.
-Notas finales:
-Cualquier duda o consulta con respecto a la prueba, consultar al siguiente correo: valentin.benitez@beetransfer.net
-Una vez terminada la prueba enviarla al siguiente mail con el siguiente asunto:
-ASUNTO: Prueba tecnica Frontend Developer
-MAIL: valentin.benitez@beetransfer.net
+<h4>Tecnologías utilizadas en el proyecto:</h4>
+
+  <ui>
+  <li>TypeScript</li>
+  <li>React.js(Next.js)</li>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>Material-UI</li>
+  <li>SweetAlert2</li>
+  </ui>
 
